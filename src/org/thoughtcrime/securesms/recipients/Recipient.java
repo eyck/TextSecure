@@ -25,6 +25,7 @@ import android.util.Log;
 
 import org.thoughtcrime.securesms.contacts.ContactPhotoFactory;
 import org.thoughtcrime.securesms.recipients.RecipientProvider.RecipientDetails;
+import org.thoughtcrime.securesms.util.AvatarGenerator;
 import org.thoughtcrime.securesms.util.BitmapUtil;
 import org.thoughtcrime.securesms.util.GroupUtil;
 import org.whispersystems.textsecure.storage.CanonicalRecipient;
@@ -56,6 +57,7 @@ public class Recipient implements Parcelable, CanonicalRecipient {
 
   private Bitmap contactPhoto;
   private Bitmap circleCroppedContactPhoto;
+  private Bitmap generatedAvatar;
 
   private Uri    contactUri;
 
@@ -66,6 +68,7 @@ public class Recipient implements Parcelable, CanonicalRecipient {
     this.circleCroppedContactPhoto  = circleCroppedContactPhoto;
     this.contactPhoto               = contactPhoto;
     this.recipientId                = recipientId;
+    this.generatedAvatar            = null;
 
     future.setListener(new FutureTaskListener<RecipientDetails>() {
       @Override
@@ -182,6 +185,13 @@ public class Recipient implements Parcelable, CanonicalRecipient {
 
   public synchronized Bitmap getCircleCroppedContactPhoto() {
     return this.circleCroppedContactPhoto;
+  }
+
+  public synchronized Bitmap getGeneratedAvatar(Context context) {
+    if (this.generatedAvatar == null)
+      this.generatedAvatar = AvatarGenerator.generateFor(this, context);
+
+    return this.generatedAvatar;
   }
 
   public static Recipient getUnknownRecipient(Context context) {
