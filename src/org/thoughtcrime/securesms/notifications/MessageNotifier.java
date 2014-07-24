@@ -29,6 +29,8 @@ import android.graphics.Color;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
+import android.os.Bundle;
+import android.os.Parcel;
 import android.os.SystemClock;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationCompat.BigTextStyle;
@@ -427,7 +429,8 @@ public class MessageNotifier {
     Intent intent = new Intent(MessageNotifier.RENOTIFY);
     intent.putExtra("master_secret", masterSecret);
 
-    PendingIntent alarmIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
+    PendingIntent alarmIntent = PendingIntent.getBroadcast(context, 0, intent,
+                                                           PendingIntent.FLAG_UPDATE_CURRENT);
 
     int timeout = TextSecurePreferences.getRenotificationTime(context) * 60 * 1000;
 
