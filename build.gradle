@@ -27,6 +27,9 @@ dependencies {
     compile 'se.emilsjolander:stickylistheaders:2.2.0'
     compile 'com.google.android.gms:play-services:5.0.77'
     compile 'com.astuetz:pagerslidingtabstrip:1.0.1'
+    compile ("com.doomonafireball.betterpickers:library:1.5.2") {
+        exclude group: 'com.android.support', module: 'support-v4'
+    }
 
     androidTestCompile 'com.squareup:fest-android:1.0.8'
 

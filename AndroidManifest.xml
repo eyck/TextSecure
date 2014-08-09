@@ -192,6 +192,9 @@
               android:windowSoftInputMode="stateHidden"
               android:configChanges="touchscreen|keyboard|keyboardHidden|orientation|screenLayout|screenSize"/>
 
+    <activity android:name=".RecipientNotificationSettingsActivity"
+              android:configChanges="touchscreen|keyboard|keyboardHidden|orientation|screenLayout|screenSize"/>
+
     <activity android:name=".DummyActivity"
               android:theme="@android:style/Theme.NoDisplay"
               android:enabled="true"

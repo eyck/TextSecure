@@ -307,6 +307,7 @@ public class ConversationActivity extends PassphraseRequiredSherlockFragmentActi
     case R.id.menu_distribution_conversation: handleDistributionConversationEnabled(item);       return true;
     case R.id.menu_edit_group:                handleEditPushGroup();                             return true;
     case R.id.menu_leave:                     handleLeavePushGroup();                            return true;
+    case R.id.menu_notification_settings:     handleNotificationSettings();                      return true;
     case android.R.id.home:                   handleReturnToConversationList();                  return true;
     }
 
@@ -525,6 +526,14 @@ public class ConversationActivity extends PassphraseRequiredSherlockFragmentActi
         }
       }.execute();
     }
+  }
+
+  private void handleNotificationSettings() {
+    Recipient recipient = getRecipients().getPrimaryRecipient();
+
+    Intent notificationSettingsIntent = new Intent(this, RecipientNotificationSettingsActivity.class);
+    notificationSettingsIntent.putExtra("recipient", recipient);
+    startActivity(notificationSettingsIntent);
   }
 
   private void handleDial(Recipient recipient) {
