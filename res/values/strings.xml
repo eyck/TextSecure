@@ -868,8 +868,7 @@
     <string name="reminder_header_sms_import_text">TextSecure can copy your phone\'s SMS messages into its encrypted database.</string>
     <string name="reminder_header_push_title">Enable TextSecure messages?</string>
     <string name="reminder_header_push_text">Instant delivery, stronger privacy, and no SMS fees.</string>
-    <string name="reminder_header_silenced_title">Notifications muted</string>
-    <string name="reminder_header_silenced_text">Notifications for this thread are currently muted.</string>
+    <string name="reminder_header_silenced_text">Notifications for this thread are muted.</string>
     <string name="reminder_header_silenced_ok">Restore</string>
     <!-- EOF -->
 
